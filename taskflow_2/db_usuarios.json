@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "nome": "Ana J\u00falia Bernardino Klenk",
+        "email": "anajuliabernardinoklenk@gmail.com",
+        "senha": "$2y$10$xSLRGqaPpAiofIHc213bp.erud3AYCk5ekmBK4kzvFFaS0Xb0NMwS"
+    },
+    {
+        "id": 2,
+        "nome": "andre",
+        "email": "anajuliabklenk@gmail.com",
+        "senha": "$2y$10$A6YOeErK1Q6f.laOLZUbZ.GOiBfq4SM.cTBlBqGPJ\/uo.qwxBUMsm"
+    },
+    {
+        "id": 3,
+        "nome": "joao",
+        "email": "ana@gmail.com",
+        "senha": "$2y$10$sBibvWeUo6qe5.oW.Pr2U.yD4ODEOPB.uGfNUWdaDyJRgS4ubZRs."
+    }
+]

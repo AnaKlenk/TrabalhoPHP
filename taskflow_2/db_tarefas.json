@@ -1,0 +1,124 @@
+[
+    {
+        "id": 1,
+        "titulo": "Ir ao mercado",
+        "descricao": "Compra para bolo de chocolate",
+        "data_limite": "2026-05-15",
+        "status": "concluida",
+        "criado_por": 1,
+        "responsavel_id": "1",
+        "comentarios": [],
+        "historico": [
+            {
+                "texto": "Tarefa criada",
+                "user": "Ana J\u00falia Bernardino Klenk",
+                "data": "14\/05\/2026 02:09"
+            },
+            {
+                "texto": "Status alterado para Conclu\u00edda",
+                "user": "Ana J\u00falia Bernardino Klenk",
+                "data": "14\/05\/2026 02:23"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "titulo": "Ir ao mercado",
+        "descricao": "compras para bolo de chocolate",
+        "data_limite": "2026-05-15",
+        "status": "pendente",
+        "criado_por": 1,
+        "responsavel_id": 1,
+        "comentarios": [],
+        "historico": [
+            {
+                "texto": "Tarefa criada",
+                "user": "Ana J\u00falia Bernardino Klenk",
+                "data": "14\/05\/2026 02:23"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "titulo": "estudar",
+        "descricao": "estudar para php",
+        "data_limite": "2026-05-29",
+        "status": "em_andamento",
+        "criado_por": 1,
+        "responsavel_id": 1,
+        "comentarios": [
+            {
+                "texto": "ver POO",
+                "user": "Ana J\u00falia Bernardino Klenk",
+                "data": "14\/05\/2026 02:24"
+            }
+        ],
+        "historico": [
+            {
+                "texto": "Tarefa criada",
+                "user": "Ana J\u00falia Bernardino Klenk",
+                "data": "14\/05\/2026 02:24"
+            },
+            {
+                "texto": "Status alterado para Em Andamento",
+                "user": "Ana J\u00falia Bernardino Klenk",
+                "data": "14\/05\/2026 02:24"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "titulo": "estudar para java",
+        "descricao": "ver classes",
+        "data_limite": "2026-05-16",
+        "status": "pendente",
+        "criado_por": 2,
+        "responsavel_id": 2,
+        "comentarios": [
+            {
+                "texto": "ver poo",
+                "user": "andre",
+                "data": "14\/05\/2026 02:31"
+            }
+        ],
+        "historico": [
+            {
+                "texto": "Tarefa criada",
+                "user": "andre",
+                "data": "14\/05\/2026 02:30"
+            },
+            {
+                "texto": "Status alterado para Pendente",
+                "user": "andre",
+                "data": "14\/05\/2026 02:30"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "titulo": "ir para a academia",
+        "descricao": "treinar",
+        "data_limite": "2026-05-20",
+        "status": "pendente",
+        "criado_por": 3,
+        "responsavel_id": 2,
+        "comentarios": [],
+        "historico": [
+            {
+                "texto": "Tarefa criada",
+                "user": "joao",
+                "data": "14\/05\/2026 02:32"
+            },
+            {
+                "texto": "Status alterado para Pendente",
+                "user": "andre",
+                "data": "14\/05\/2026 02:47"
+            },
+            {
+                "texto": "Status alterado para Pendente",
+                "user": "andre",
+                "data": "14\/05\/2026 02:47"
+            }
+        ]
+    }
+]
