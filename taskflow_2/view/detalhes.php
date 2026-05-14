@@ -2,11 +2,9 @@
 use App\Controller\tarefaController as TarefaCtrl;
 use App\Util\Functions as Util;
 
-// 1. Obtém o ID da URL e busca a tarefa via Controller
 $id = (int)($_GET['id'] ?? 0);
 $tarefa = TarefaCtrl::buscarPorId($id);
 
-// 2. Se a tarefa não existir, exibe erro
 if (!$tarefa): ?>
     <div class="empty-state" style="margin-top: 60px;">
         <div class="empty-state__icon">🔍</div>
@@ -54,6 +52,37 @@ if (!$tarefa): ?>
             <?= nl2br(htmlspecialchars($tarefa['descricao'] ?: 'Sem descrição informada.')) ?>
         </p>
     </div>
+
+    <?php
+    $podeAlterar = (
+        (int)$_SESSION['usuario_id'] === (int)$tarefa['criado_por'] ||
+        (int)$_SESSION['usuario_id'] === (int)$tarefa['responsavel_id']
+    );
+    if ($podeAlterar):
+    ?>
+    <div style="margin-bottom: 10px;">
+        <span style="color: var(--text-dim); font-size: 11px; text-transform: uppercase; font-weight: bold;">Atualizar Status</span>
+        <div style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
+            <?php
+            $statusOpcoes = [
+                'pendente'     => ['label' => 'Pendente',     'class' => 'badge--pending'],
+                'em_andamento' => ['label' => 'Em Andamento', 'class' => 'badge--progress'],
+                'concluida'    => ['label' => 'Concluída',    'class' => 'badge--done'],
+            ];
+            foreach ($statusOpcoes as $valor => $opcao):
+                $ativo = $tarefa['status'] === $valor;
+            ?>
+                <a href="?atualizar_status=1&id=<?= $tarefa['id'] ?>&novo_status=<?= $valor ?>"
+                   class="btn <?= $ativo ? 'btn--primary' : 'btn--ghost' ?>"
+                   style="<?= $ativo ? 'cursor: default; opacity: 0.7;' : '' ?>"
+                   <?= $ativo ? 'onclick="return false;"' : '' ?>>
+                    <?= $opcao['label'] ?>
+                    <?php if ($ativo): ?> ✓<?php endif; ?>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?php endif; ?>
 </div>
 
 <div class="card" style="margin-top: 20px;">

@@ -48,7 +48,13 @@ class usuarioController {
                 if ($u['email'] === $email && password_verify($senha, $u['senha'])) {
                     $_SESSION['usuario_id'] = $u['id'];
                     $_SESSION['usuario_nome'] = $u['nome'];
-                    $_SESSION['db_usuarios'] = $usuarios; 
+                    $_SESSION['db_usuarios'] = $usuarios;
+
+                    if (isset($_POST['lembrar'])) {
+                        setcookie('ultimo_email', $email, time() + (86400 * 30), '/');
+                    } else {
+                        setcookie('ultimo_email', '', time() - 3600, '/');
+                    }
                     header("Location: ?p=home");
                     exit;
                 }

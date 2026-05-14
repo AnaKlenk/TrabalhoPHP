@@ -16,5 +16,17 @@
         "nome": "joao",
         "email": "ana@gmail.com",
         "senha": "$2y$10$sBibvWeUo6qe5.oW.Pr2U.yD4ODEOPB.uGfNUWdaDyJRgS4ubZRs."
+    },
+    {
+        "id": 4,
+        "nome": "andre lima",
+        "email": "a123@hotmail.com",
+        "senha": "$2y$10$i\/BMtOnXjM\/Z\/d6qch.KXu0HvemzPe7Y6T.CYOo1LQbU0r6F2eW4K"
+    },
+    {
+        "id": 5,
+        "nome": "andre lima 2",
+        "email": "a1223@hotmail.com",
+        "senha": "$2y$10$xJUdf\/YMcmL.JSaNP721JuD7ec0RXKw\/LzFvt0ZsxL7A3wM.y19pO"
     }
 ]

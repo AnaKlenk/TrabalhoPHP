@@ -2,17 +2,13 @@
 use App\Util\Functions as Util;
 use App\Controller\tarefaController as TarefaCtrl;
 
-// Puxamos a lista global de tarefas do JSON através do Controller
 $todasTarefas = TarefaCtrl::listar();
 
-// Usuários da sessão para exibir a equipe e traduzir nomes
 $usuarios = $_SESSION['db_usuarios'] ?? [];
 
-// 1. RECALCULAR CONTADORES GERAIS (Garante que os cards batam com a lista)
 $contadores = ['pendente' => 0, 'em_andamento' => 0, 'concluida' => 0];
 foreach ($todasTarefas as $t) {
     $st = $t['status'] ?? 'pendente';
-    // Normalização para garantir que conte corretamente mesmo com diferenças de caixa alta/baixa
     $stLower = strtolower($st);
     if ($stLower === 'em andamento') $stLower = 'em_andamento';
     if ($stLower === 'concluída') $stLower = 'concluida';

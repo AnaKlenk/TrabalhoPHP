@@ -1,10 +1,8 @@
 <?php
 use App\Controller\tarefaController as TarefaCtrl;
 
-// Executa a lógica de cadastro
 TarefaCtrl::cadastrar();
 
-// Puxa os usuários da sessão para o select de responsáveis
 $usuarios = $_SESSION['db_usuarios'] ?? [];
 ?>
 

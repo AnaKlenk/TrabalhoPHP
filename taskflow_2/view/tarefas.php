@@ -5,15 +5,16 @@ use App\Controller\tarefaController as TarefaCtrl;
 $todasTarefas = TarefaCtrl::listar();
 $usuarios = $_SESSION['db_usuarios'] ?? [];
 
-// Captura os filtros da URL
-$fStatus = $_GET['status'] ?? '';
-$fResp   = $_GET['responsavel'] ?? '';
 
-// Aplica a filtragem
-$tarefasFiltradas = array_filter($todasTarefas, function($t) use ($fStatus, $fResp) {
+$fStatus = $_GET['status']      ?? '';
+$fResp   = $_GET['responsavel'] ?? '';
+$fData   = $_GET['data_limite'] ?? '';
+
+$tarefasFiltradas = array_filter($todasTarefas, function($t) use ($fStatus, $fResp, $fData) {
     $matchStatus = ($fStatus == '' || $t['status'] == $fStatus);
-    $matchResp   = ($fResp == '' || (int)$t['responsavel_id'] === (int)$fResp);
-    return $matchStatus && $matchResp;
+    $matchResp   = ($fResp   == '' || (int)$t['responsavel_id'] === (int)$fResp);
+    $matchData   = ($fData   == '' || $t['data_limite'] == $fData);
+    return $matchStatus && $matchResp && $matchData;
 });
 ?>
 
@@ -39,6 +40,12 @@ $tarefasFiltradas = array_filter($todasTarefas, function($t) use ($fStatus, $fRe
                     <option value="<?= $u['id'] ?>" <?= $fResp == $u['id'] ? 'selected' : '' ?>><?= htmlspecialchars($u['nome']) ?></option>
                 <?php endforeach; ?>
             </select>
+        </div>
+
+        <div style="flex: 1;">
+            <label style="font-size: 11px; color: var(--text-dim); font-weight: bold; text-transform: uppercase;">Filtrar Data Limite</label>
+            <input type="date" name="data_limite" value="<?= htmlspecialchars($fData) ?>"
+                   style="width:100%; background:#1a1d21; color:white; border:1px solid var(--border); padding:10px; border-radius:6px; margin-top:5px;">
         </div>
 
         <button type="submit" class="btn btn--primary" style="padding: 11px 25px;">Filtrar</button>

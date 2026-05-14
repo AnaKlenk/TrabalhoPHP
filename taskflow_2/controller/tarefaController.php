@@ -26,9 +26,6 @@ class tarefaController {
         return null;
     }
 
-    /**
-     * Remove a tarefa - APENAS O RESPONSÁVEL
-     */
     public static function deletar(): void {
         $id = (int)($_GET['id'] ?? 0);
         $tarefas = self::listar();
@@ -37,10 +34,9 @@ class tarefaController {
 
         foreach ($tarefas as $t) {
             if ((int)$t['id'] === $id) {
-                // TRAVA DE SEGURANÇA: Verifica se o ID do logado é o mesmo do Responsável
                 if ((int)$t['responsavel_id'] === (int)$_SESSION['usuario_id']) {
                     $podeApagar = true;
-                    continue; // Pula a tarefa (deleta)
+                    continue; 
                 }
             }
             $novaLista[] = $t;
@@ -50,7 +46,6 @@ class tarefaController {
             self::salvar($novaLista);
             header("Location: ?p=tarefas");
         } else {
-            // Se tentar burlar o link, volta para os detalhes com erro
             header("Location: ?p=detalhes&id=$id&erro=sem_permissao");
         }
         exit;
